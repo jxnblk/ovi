@@ -3,7 +3,6 @@
 
 Zero-config React dev environment and bundler, built with rollup.js
 
-> `ovi(Component) => HTML`
 
 ```sh
 npm i ovi
