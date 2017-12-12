@@ -1,5 +1,11 @@
 import React from 'react'
 import connect from 'refunk'
+import styled from 'styled-components'
+import system from 'styled-system'
+
+const { space } = system
+
+const Box = styled.div([], space)
 
 const Hello = connect(class extends React.Component {
   render () {
@@ -7,20 +13,28 @@ const Hello = connect(class extends React.Component {
 
     return (
       <React.Fragment>
-        <title>Hello ovi</title>
-        <Style />
-        <h1 style={{ color: 'tomato' }}>
-          Hello ovi {count}
-        </h1>
-        <pre>zero-config react dev environment and bundler</pre>
-        <button
-          onClick={e => update(dec)}
-          children='-'
-        />
-        <button
-          onClick={e => update(inc)}
-          children='+'
-        />
+        <head>
+          <title>Hello ovi</title>
+          <meta name='viewport' content='width=device-width,initial-scale=1' />
+          <Style />
+        </head>
+        <Box p={4}>
+          <h1>
+            Hello ovi {count}
+          </h1>
+          <h2>zero-config react dev environment and bundler</h2>
+          <pre>npm i ovi</pre>
+          <pre>ovi App.js --dev --open</pre>
+          <pre>ovi App.js > index.html</pre>
+          <button
+            onClick={e => update(dec)}
+            children='-'
+          />
+          <button
+            onClick={e => update(inc)}
+            children='+'
+          />
+        </Box>
       </React.Fragment>
     )
   }
@@ -35,7 +49,7 @@ const dec = s => ({ count: s.count - 1 })
 
 const Style = () => <style
   dangerouslySetInnerHTML={{
-    __html: `*{box-sizing:border-box}:root{font-family:-apple-system,BlinkMacSystemFont,sans-serif;margin:0}`
+    __html: `*{box-sizing:border-box}:root,body{font-family:-apple-system,BlinkMacSystemFont,sans-serif;margin:0}`
   }}
 />
 
